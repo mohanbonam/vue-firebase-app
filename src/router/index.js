@@ -24,8 +24,8 @@ const routes = [
     component: Register
   },
   {
-    path: "/meetings",
-    name: "meetings",
+    path: '/meetings',
+    name: 'meetings',
     component: Meetings
   },
   {
@@ -35,8 +35,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+  // mode: 'history',
+  // base: process.env.BASE_URL,
   routes
 })
 
