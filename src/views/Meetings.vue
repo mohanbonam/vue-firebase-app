@@ -3,13 +3,9 @@
     <div class="row justify-content-center">
       <div class="col-12 col-md-9 col-lg-7">
         <div class="text-secondary text-center">
-          <div
-            v-if="user"
-            class="text-center"
-          >
-            Welcome <br>
-            <span class="font-weight-bold text-info">{{user.displayName}}</span>
-            <h4 class="display-5 text-primary mb-2">You are being watched</h4>
+          <div v-if="user">
+            <p>Welcome <br><span class="font-weight-bold text-info">{{user.displayName}}</span></p>
+            <p>You are being watched</p>
             <a
               href="#"
               role="button"

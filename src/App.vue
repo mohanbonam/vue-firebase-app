@@ -115,6 +115,28 @@ export default {
 </script>
 
 <style lang="scss">
+body, html {
+  height: 100%;
+}
+
+#app {
+  /* The image used */
+  // background-image: url("https://free4kwallpapers.com/uploads/originals/2015/05/21/chicago-at-night.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+// p {
+//   color: rgb(226, 226, 226);
+// }
+// a:link {
+//   color: rgb(226, 226, 226);
+// }
 $primary: #35383a;
 @import "node_modules/bootstrap/scss/bootstrap";
 </style>
