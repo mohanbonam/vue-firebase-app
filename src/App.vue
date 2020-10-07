@@ -3,12 +3,14 @@
     <Navigation
       :user="user"
       @logout="logout"
+      :timestamp = timestamp
     />
     <router-view
       class="container"
       :user="user"
       :error="error"
       @logout="logout"
+      :timestamp = timestamp
     />
   </div>
 </template>
@@ -24,10 +26,30 @@ export default {
     return {
       user: null,
       error: null,
-      meetings: []
+      meetings: [],
+      timestamp: ''
     }
   },
+  created () {
+    this.getNow()
+    setInterval(this.getNow, 1000)
+  },
   methods: {
+    leadingZero (time) {
+      if (time < 10) {
+        return '0' + time
+      }
+      return time
+    },
+    getNow: function () {
+      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      const dayNames = ['Saturday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+      const today = new Date()
+      const date = dayNames[today.getDay()] + ' ' + monthNames[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear()
+      const time = this.leadingZero(today.getHours()) + ':' + this.leadingZero(today.getMinutes()) + ':' + this.leadingZero(today.getSeconds())
+      const dateTime = date + ' ' + time
+      this.timestamp = dateTime
+    },
     logout: function () {
       Firebase.auth()
         .signOut()
